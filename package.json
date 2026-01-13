@@ -11,6 +11,7 @@
     "watch-sass": "sass --watch --no-source-map src/main.scss output.css"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "sass": "^1.96.0"
   }
 }
