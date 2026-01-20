@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+
+<div class="movies">
+  {{#each movies}}
+    <article class="movie-card">
+      <h2>{{attributes.title}}</h2>
+
+      <p>{{attributes.description}}</p>
+      
+      <a href="/movies/{{id}}">
+        Läs mer
+      </a>
+    </article>
+  {{/each}}
+</div>
