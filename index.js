@@ -27,8 +27,6 @@ app.get("/movies", async (req, res) => {
     const response = await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/movies");
     const movies = await response.json();
 
-    //console.log(movies); // <-- viktigt första gången
-
     res.render("movies", {
       title: "Filmer",
       movies: movies.data
@@ -40,18 +38,17 @@ app.get("/movies", async (req, res) => {
   }
 });
 
-/*app.get("/movies", (req, res) => {
-  res.render("movies", {title: "Filmer" , movies: [
-    {id:1, title: "Inception"}, {id:2, title: "The Matrix"}
-  ]})
-})
+app.get("/movies/:id", async (req, res) => {
+  const id = req.params.id;
 
-/*
-{{#if movies.length}}
-  <p>Total Movies: {{movies.length}}</p>
-{{else}}
-  <p>No movies available.</p>
-{{/if}}
+  const response = await fetch (
+    `https://plankton-app-xhkom.ondigitalocean.app/api/movies/${id}`
+  );
 
-till html movies ^
-*/
+  const json = await response.json();
+
+  res.render("movieinfo", {
+    title: json.data.attributes.title,
+    movie: json.data
+  });
+});
