@@ -3,13 +3,12 @@ import request from 'supertest';
 import { app } from '../index.js';
 
 describe('Movie list page', () => {
-    test('lists movies from API', async () => {
+    test("correctly loads the movie title", async () => {
     await request(app)
-      .get('/movies')
+      .get("/movies/6")
       .expect(200)
-      .expect((res) => {
-        expect(res.text).toContain('Filmer');
-        expect(res.text).toMatch(/<h2>.*<\/h2>/); // Check for movie titles in h2 tags
+      .expect(res => {
+        expect(res.text).toContain("Forrest Gump");
       });
     });
 });
