@@ -9,8 +9,8 @@
   "scripts": {
     "start": "node .",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "sass": "sass --no-source-map src/main.scss output.css",
-    "watch-sass": "sass --watch --no-source-map src/main.scss output.css"
+    "sass": "sass --no-source-map static/src/main.scss static/output.css",
+    "watch-sass": "sass --watch --no-source-map static/src/main.scss static/output.css"
   },
   "dependencies": {
     "cross-env": "^10.1.0",
